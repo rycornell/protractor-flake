@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rycornell/protractor-flake.git"
+    "url": "https://github.com/NickTomlin/protractor-flake.git"
   },
   "scripts": {
     "serve": "bin/www",
@@ -15,7 +15,7 @@
     "test:integration": "webdriver-manager update && npm run build && mocha test/helper.js test/integration/bin.js --slow 30000 --timeout 30000 --reporter tap",
     "test:dev": "mocha --watch",
     "build": "babel -d dist src",
-    "prepublish": "npm run build",
+    "install": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "bin": "./bin/protractor-flake",
