@@ -25,6 +25,10 @@ export default function (options = {}, callback = function noop () {}) {
     } else {
       if (++testAttempt <= parsedOptions.maxAttempts) {
         let failedSpecs = failedSpecParser(output)
+        // rerun the js files, not the typescript files
+        for (var i = 0; i < failedSpecs.length; i++){
+          failedSpecs[i] = failedSpecs[i].replace(/\.ts$/, '.js');
+        }
         log('info', `Re-running tests: test attempt ${testAttempt}\n`)
         log('info', 'Re-running the following test files:\n')
         log('info', failedSpecs.join('\n') + '\n')
