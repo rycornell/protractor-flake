@@ -1,7 +1,7 @@
 {
   "name": "protractor-flake",
   "description": "A wrapper for protractor to automatically re-run failed specs for a specific number of attempts",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "version": "0.0.0",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "test:integration": "webdriver-manager update && npm run build && mocha test/helper.js test/integration/bin.js --slow 30000 --timeout 30000 --reporter tap",
     "test:dev": "mocha --watch",
     "build": "babel -d dist src",
-    "install": "npm run build",
+    "prepublish": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "bin": "./bin/protractor-flake",
